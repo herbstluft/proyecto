@@ -9,8 +9,6 @@
 //Ejecutar consulta
             $usuarios = $db->seleccionarDatos($sql);
 
-
-print_r($usuarios);
 ?>
 
 
@@ -33,7 +31,7 @@ print_r($usuarios);
 <body>
       
 
-<form method="POST" class="login">
+<form method="POST" action="src/scripts/registrar.php" class="login">
 
 <h2 style="font-weight: 700; text-align:center">Te registras coachoncito? 
 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="red" class="bi bi-hearts" viewBox="0 0 16 16">
@@ -43,44 +41,29 @@ print_r($usuarios);
 <br>
 
 <div class="form-floating mb-3">
-  <input type="text" class="form-control input" id="floatingInput" placeholder="name@example.com">
+  <input type="text" class="form-control input" id="floatingInput" name="nombre" placeholder="name@example.com">
   <label style="color: #575757bb;" for="floatingInput">Nombre Completo</label>
 </div>
 
 
 <div class="form-floating mb-3">
-  <input type="email" class="form-control input" id="floatingInput" placeholder="name@example.com">
+  <input type="email" class="form-control input" id="floatingInput" name="correo" placeholder="name@example.com">
   <label style="color: #575757bb;" for="floatingInput">Correo Electronico</label>
 </div>
 
 
-<center><button type="button" style="   background:  rgba(0, 128, 255, 0.316); padding:3%; border:none;
+<center><button type="sumbit" style="   background:  rgba(0, 128, 255, 0.316); padding:3%; border:none;
     backdrop-filter: blur(20px);" class="btn btn-primary">Registrarme</button></center>
 </form>
 
 
 
-<table class="table  table-hover">
-<thead>
-    <tr>
-      <th scope="col">Nombre Completo</th>
-      <th scope="col">Correo Electronico</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-    </tr>
-    <tr>
+<?php foreach($usuarios as $usuario){
 
-      <td>Jacob</td>
-      <td>Thornton</td>
-    </tr>
-
-  </tbody>
-</table>
-
+      echo "Nombre: ".$usuario['nombre']." ----- >";
+      echo "Correo: ".$usuario['email']. "<br>";
+}
+?>
 
 
 </body>
